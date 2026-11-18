@@ -1,0 +1,52 @@
+import SwiftUI
+
+struct ContentView: View {
+    @State private var email = ""
+    @State private var password = ""
+
+    var body: some View {
+        VStack(spacing: 25) {
+
+            Image(systemName: "person.crop.circle.fill")
+                .font(.system(size: 80))
+                .foregroundColor(.blue)
+
+            Text("Welcome Back")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+
+            Text("Login to your account")
+                .foregroundColor(.gray)
+
+            TextField("Email Address", text: $email)
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(12)
+                .keyboardType(.emailAddress)
+
+            SecureField("Password", text: $password)
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(12)
+
+            Button(action: {
+                print("Login tapped")
+            }) {
+                Text("Login")
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(12)
+            }
+
+            Spacer()
+        }
+        .padding(25)
+    }
+}
+
+#Preview {
+    ContentView()
+}
